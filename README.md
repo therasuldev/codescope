@@ -29,6 +29,42 @@ The compiled binary will be available at `target/release/cs`. To install it glob
 cargo install --path .
 ```
 
+## Using it globally, across any project
+
+codescope only works with the files and folders in your current directory — it doesn't care whether that's a Rust, Flutter, Node, or any other kind of project. Install it once and it's available everywhere.
+
+Run this inside the `codescope` folder:
+
+```bash
+cargo install --path .
+```
+
+This installs the `cs` binary to `~/.cargo/bin`, which `rustup` normally adds to your `PATH` automatically. Verify it works from anywhere:
+
+```bash
+cs --help
+```
+
+If you get `command not found`, add this line to your `~/.zshrc` (or `~/.bashrc`) and restart your terminal:
+
+```bash
+export PATH="$HOME/.cargo/bin:$PATH"
+```
+
+From then on, open any project in VS Code (or any terminal) and use it directly:
+
+```bash
+cs cat lib main.dart
+cs loc lib
+cs empty .
+```
+
+To update after making changes to codescope's source code:
+
+```bash
+cargo install --path . --force
+```
+
 ## Usage
 
 ```
